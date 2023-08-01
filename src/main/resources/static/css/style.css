@@ -1,0 +1,63 @@
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+fieldset {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin: 10px;
+}
+
+#donut-image {
+    display: none;
+    position: fixed;
+    height: 1000px;
+    width: 1000px;
+    bottom: -400px;
+    right: -400px;
+    background-image: url("../images/donut.jpg");
+    background-size: contain;
+    z-index: -100;
+    opacity: .7;
+}
+
+#donate {
+    display: none;
+    margin-bottom: 200px;
+    font-style: italic;
+}
+
+.form {
+    margin-bottom: 30px;
+}
+
+#loading {
+    display: none; /* Скрыт по умолчанию */
+    width: 40px;
+    height: 40px;
+    margin: 50px auto; /* Центрирование на странице */
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
