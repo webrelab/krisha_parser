@@ -39,10 +39,13 @@ fun Application.configureRouting() {
                         gymnasium = params["gymnasium"].fromCheckbox(),
                         lyceum = params["lyceum"].fromCheckbox(),
                         metro = params["metro"].fromCheckbox(),
-                        cityPark = params["city-park"].fromCheckbox()
+                        cityPark = params["city-park"].fromCheckbox(),
+                        gossad = params["gossad"].fromCheckbox(),
+                        correctionalsad = params["correctionalsad"].fromCheckbox(),
+                        privatesad = params["privatesad"].fromCheckbox()
                     )
                     val fileName = Worker(requestParams).execute()
-                    call.respondText("download/$fileName")
+                    call.respondText(fileName)
                 } ?: call.respond(BadRequest, "Не указан URL фильтра")
             } catch (e: Throwable) {
                 logger.error(e)

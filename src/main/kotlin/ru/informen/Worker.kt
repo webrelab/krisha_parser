@@ -52,7 +52,8 @@ class Worker(private val requestParams: RequestParams) {
                 it.schoolRoute[0].distance
             }
         }
-        return ResultWriter(items).writeResultsToXlsx()
+        val fileId = ResultWriter(items).writeResultsToXlsx()
+        return "download/$fileId"
     }
 
     private fun loadSchools(): List<SchoolBuilding> {
@@ -60,6 +61,9 @@ class Worker(private val requestParams: RequestParams) {
         if (requestParams.generalSchool) schoolTypes.add("general")
         if (requestParams.gymnasium) schoolTypes.add("gymnasium")
         if (requestParams.lyceum) schoolTypes.add("lyceum")
+        if (requestParams.gossad) schoolTypes.add("gossad")
+        if (requestParams.correctionalsad) schoolTypes.add("correctionalsad")
+        if (requestParams.privatesad) schoolTypes.add("privatesad")
         val languages = mutableListOf<String>()
         if (requestParams.rusLang) languages.add("rus-lang")
         if (requestParams.kazLang) languages.add("kaz-lang")

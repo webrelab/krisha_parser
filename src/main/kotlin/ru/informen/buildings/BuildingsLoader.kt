@@ -19,8 +19,8 @@ object BuildingsLoader {
 
         if (!buildings.contains(fileName)) {
             val lang = when {
-                fileName.contains("mixed_lang") -> "Смешанный"
-                fileName.contains("rus_lang") -> "Русский"
+                fileName.contains("mixed-lang") -> "Смешанный"
+                fileName.contains("rus-lang") -> "Русский"
                 else -> "Казахский"
             }
             buildings[fileName] = readBuildingsFromXlsx(fileName)

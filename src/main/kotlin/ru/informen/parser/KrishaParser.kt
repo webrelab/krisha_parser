@@ -55,12 +55,17 @@ class KrishaParser(private val searchUrl: String) {
             val url = "$PROPERTY_VIEW_URL/$id"
             val document = Jsoup.connect(url).get()
             val jsdata = getJsdata(document)
-            val response: ViewResponse = json.decodeFromString(jsdata)
-            val property = createProperty(response, url, document)
-            PropertyCache.add(id, property)
+            kotlin.runCatching {
+                json.decodeFromString<ViewResponse>(jsdata)
+            }.getOrNull()?.let {
+                val property = createProperty(it, url, document)
+                PropertyCache.add(id, property)
+            }
             Thread.sleep(500)
         }
-        properties.add(PropertyCache.get(id))
+        PropertyCache.get(id)?.let {
+            properties.add(it)
+        }
     }
 
     private fun createProperty(response: ViewResponse, url: String, document: Document): Property {

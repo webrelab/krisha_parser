@@ -41,7 +41,7 @@ class ResultWriter(private val results: List<Item>) {
         for (name in keys) headerRow.createCell(index++).setCellValue(name)
         if (hasMetro) headerRow.createCell(index++).setCellValue("Метро")
         if (hasCityParks) headerRow.createCell(index++).setCellValue("Парки")
-        if (hasSchools) (1..3).forEach { headerRow.createCell(index++).setCellValue("Школа $it") }
+        if (hasSchools) (1..3).forEach { headerRow.createCell(index++).setCellValue("Обр. заведение $it") }
     }
 
     private fun writeRows() {

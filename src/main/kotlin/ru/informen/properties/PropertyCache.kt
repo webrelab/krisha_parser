@@ -17,7 +17,7 @@ object PropertyCache {
         return cache.contains(id)
     }
 
-    fun get(id: Long) = cache.getValue(id)
+    fun get(id: Long) = cache[id]
 
     private fun check(id: Long) {
         if (cacheTime.contains(id)) {

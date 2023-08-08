@@ -8,6 +8,9 @@ data class RequestParams(
     val generalSchool: Boolean,
     val gymnasium: Boolean,
     val lyceum: Boolean,
+    val gossad: Boolean,
+    val correctionalsad: Boolean,
+    val privatesad: Boolean,
     val metro: Boolean,
     val cityPark: Boolean,
 )

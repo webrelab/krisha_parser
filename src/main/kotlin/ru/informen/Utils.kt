@@ -34,10 +34,12 @@ fun readBuildingsFromXlsx(filename: String): List<Place> {
     val buildings = mutableListOf<Place>()
 
     for (row in sheet) {
-        val name = row.getCell(0).stringCellValue
-        val address = row.getCell(1).stringCellValue
-        val location = row.getCell(2).stringCellValue.split(",").map { it.trim() }
-        buildings.add(Place(name, address, location[0].toDouble(), location[1].toDouble()))
+        if (row.physicalNumberOfCells > 2) {
+            val name = row.getCell(0).stringCellValue
+            val address = row.getCell(1).stringCellValue
+            val location = row.getCell(2).stringCellValue.split(",").map { it.trim() }
+            buildings.add(Place(name, address, location[0].toDouble(), location[1].toDouble()))
+        }
     }
     workbook.close()
     return buildings
